@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardImg,
@@ -10,9 +11,11 @@ import {
   Button,
   Collapse,
 } from 'reactstrap';
+
 import { getRecipeById } from '../../redux/actions/recipeAction';
 import { getCurrentRecipeSelector } from '../../redux/selectors/recipeSelector';
 import DefaultRecipeImg from '../../assets/img/default-recipe.svg';
+import style from './RecipeDetails.module.scss';
 
 const RecipeDetails = ({ match }) => {
   const [openRecipe, setOpenRecipe] = useState(null);
@@ -31,7 +34,7 @@ const RecipeDetails = ({ match }) => {
   if (!recipe) return null;
 
   return (
-    <div>
+    <div className={style.root}>
       <Card>
         <CardImg
           top
@@ -71,6 +74,10 @@ const RecipeDetails = ({ match }) => {
         })}
     </div>
   );
+};
+
+RecipeDetails.propTypes = {
+  match: PropTypes.object.isRequired,
 };
 
 export default withRouter(RecipeDetails);

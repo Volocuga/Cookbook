@@ -1,5 +1,6 @@
 export default values => {
   const errors = {};
+
   if (!values.title) {
     errors.title = 'This field is required';
   } else if (values.title.length > 20) {

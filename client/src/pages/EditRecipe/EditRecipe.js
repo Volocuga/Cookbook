@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { Button, Form, FormGroup, Label } from 'reactstrap';
 import {
   editRecipeAction,
@@ -49,6 +51,12 @@ const EditRecipe = ({ match, history, handleSubmit }) => {
       </Form>
     </div>
   );
+};
+
+EditRecipe.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

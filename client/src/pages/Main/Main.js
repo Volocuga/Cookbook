@@ -6,9 +6,9 @@ import CreateRecipe from '../CreateRecipe/CreateRecipe';
 import EditRecipe from '../EditRecipe/EditRecipe';
 import RecipesList from './RecipesList/RecipesList';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
-import style from './Main.module.scss';
 import Footer from '../../components/Footer/Footer';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import style from './Main.module.scss';
 
 const Main = () => (
   <div className={style.root}>

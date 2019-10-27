@@ -7,6 +7,7 @@ import {
 } from '../../../redux/actions/recipeAction';
 import { getRecipesSelector } from '../../../redux/selectors/recipeSelector';
 import RecipeItem from '../RecipeItem/RecipeItem';
+import style from './RecipeList.module.scss';
 
 const RecipesList = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const RecipesList = () => {
   if (!recipes.length) return null;
 
   return (
-    <ListGroup>
+    <ListGroup className={style.root}>
       {recipes.map(recipe => (
         <RecipeItem
           key={recipe.id}

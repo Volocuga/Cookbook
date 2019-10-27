@@ -1,13 +1,16 @@
 import React from 'react';
 import { Button, ListGroupItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import style from './RecipeItem.module.scss';
 
 const RecipeItem = ({ recipe: { id, title, text }, removeRecipe }) => {
   const handleRemoveRecipe = () => {
     removeRecipe(id);
   };
   return (
-    <ListGroupItem key={id}>
+    <ListGroupItem key={id} className={style.root}>
       <p>title: {title}</p>
       <p>text: {text}</p>
       <Button type="button">
@@ -23,4 +26,12 @@ const RecipeItem = ({ recipe: { id, title, text }, removeRecipe }) => {
   );
 };
 
+RecipeItem.propTypes = {
+  removeRecipe: PropTypes.func.isRequired,
+  recipe: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired,
+};
 export default RecipeItem;
