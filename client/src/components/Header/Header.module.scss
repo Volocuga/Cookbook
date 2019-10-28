@@ -1,0 +1,23 @@
+.root {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  background-color: #343a40;
+}
+
+.pseudoHeader {
+  height: 82px;
+}
+
+.logo {
+  color: #fff;
+
+  img {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}

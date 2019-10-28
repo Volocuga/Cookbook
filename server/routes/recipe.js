@@ -1,7 +1,6 @@
 const express = require("express");
 const shortId = require("shortid");
 const router = express.Router();
-
 const Recipe = require("../models/Recipe");
 
 // GET ALL RECIPES

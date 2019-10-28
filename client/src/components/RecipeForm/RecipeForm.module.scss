@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 550px;
+  textarea {
+    height: 10rem !important;
+    resize: none;
+  }
+}
+
+.saveBtn {
+  margin-top: 1.6rem;
+}
