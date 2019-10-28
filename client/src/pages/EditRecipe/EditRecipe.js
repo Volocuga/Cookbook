@@ -8,7 +8,7 @@ import {
   editRecipeAction,
   getRecipeById,
 } from '../../redux/actions/recipeAction';
-import validate from '../_helpers/validateRecipeForm';
+import validate from '../../_helpers/validateRecipeForm';
 import RecipeForm from '../../components/RecipeForm/RecipeForm';
 import { getCurrentRecipeSelector } from '../../redux/selectors/recipeSelector';
 

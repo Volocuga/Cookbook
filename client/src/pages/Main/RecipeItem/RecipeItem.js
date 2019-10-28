@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
@@ -8,21 +10,19 @@ import {
   CardTitle,
   Col,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
 import style from './RecipeItem.module.scss';
 
 const RecipeItem = ({ recipe: { id, title, text }, removeRecipe }) => {
   const handleRemoveRecipe = () => {
     removeRecipe(id);
   };
+
   return (
     <Col sm="6" lg="4" className="mb-4">
-      <Card key={id} className={style.root}>
+      <Card className={style.root}>
         <CardBody>
           <CardTitle className={style.cardTitle}>{title}</CardTitle>
-          <CardText>{text}</CardText>
+          <CardText>{text.substring(0, 100)} ...</CardText>
         </CardBody>
         <CardFooter className="d-flex justify-content-around">
           <Button type="button" color="secondary" className={style.button}>

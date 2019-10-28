@@ -3,8 +3,8 @@ export default values => {
 
   if (!values.title) {
     errors.title = 'This field is required';
-  } else if (values.title.length > 20) {
-    errors.title = 'Must be 15 characters or less';
+  } else if (values.title.length > 50) {
+    errors.title = 'Must be 50 characters or less';
   } else if (values.title.length < 3) {
     errors.title = 'Must be more then 3 characters';
   }

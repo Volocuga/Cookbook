@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import {
   Card,
-  CardText,
   CardBody,
   CardTitle,
   Button,
@@ -17,6 +16,7 @@ import {
 
 import { getRecipeById } from '../../redux/actions/recipeAction';
 import { getCurrentRecipeSelector } from '../../redux/selectors/recipeSelector';
+import { beautyHtml } from '../../_helpers/htmlUtils';
 import style from './RecipeDetails.module.scss';
 
 const RecipeDetails = ({ match }) => {
@@ -46,7 +46,11 @@ const RecipeDetails = ({ match }) => {
           <Card className={style.card}>
             <CardBody>
               <CardTitle className={style.cardTitle}>{recipe.title}</CardTitle>
-              <CardText>{recipe.text}</CardText>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: beautyHtml(recipe.text),
+                }}
+              />
             </CardBody>
             <CardFooter className="py-4">
               <Button type="button" color="secondary" className={style.editBtn}>
@@ -77,7 +81,11 @@ const RecipeDetails = ({ match }) => {
                         <CardTitle className={style.cardTitle}>
                           {history.title}
                         </CardTitle>
-                        <CardText>{history.text}</CardText>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: beautyHtml(history.text),
+                          }}
+                        />
                       </CardBody>
                     </Card>
                   </Collapse>
