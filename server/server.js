@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
-const db = require("./config/key").mongoURI;
 const recipe = require("./routes/recipe");
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use("/api/recipe", recipe);
 
 mongoose
-  .connect(db, {
+  .connect(process.env.MONGODB_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false

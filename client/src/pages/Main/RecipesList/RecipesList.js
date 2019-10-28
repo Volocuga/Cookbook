@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListGroup } from 'reactstrap';
+import { Row } from 'reactstrap';
 import {
   getRecipesAction,
   removeRecipeAction,
@@ -24,7 +24,7 @@ const RecipesList = () => {
   if (!recipes.length) return null;
 
   return (
-    <ListGroup className={style.root}>
+    <Row className={style.root}>
       {recipes.map(recipe => (
         <RecipeItem
           key={recipe.id}
@@ -32,7 +32,7 @@ const RecipesList = () => {
           recipe={recipe}
         />
       ))}
-    </ListGroup>
+    </Row>
   );
 };
 

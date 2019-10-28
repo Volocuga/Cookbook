@@ -1,5 +1,13 @@
 import React from 'react';
-import { Button, ListGroupItem } from 'reactstrap';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardText,
+  CardTitle,
+  Col,
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -10,19 +18,30 @@ const RecipeItem = ({ recipe: { id, title, text }, removeRecipe }) => {
     removeRecipe(id);
   };
   return (
-    <ListGroupItem key={id} className={style.root}>
-      <p>title: {title}</p>
-      <p>text: {text}</p>
-      <Button type="button">
-        <Link to={`/recipe/${id}/edit`}>Edit</Link>
-      </Button>
-      <Button type="button" className="m-2">
-        <Link to={`/recipe/${id}`}>Details</Link>
-      </Button>
-      <Button type="button" onClick={handleRemoveRecipe}>
-        Delete
-      </Button>
-    </ListGroupItem>
+    <Col sm="6" lg="4" className="mb-4">
+      <Card key={id} className={style.root}>
+        <CardBody>
+          <CardTitle className={style.cardTitle}>{title}</CardTitle>
+          <CardText>{text}</CardText>
+        </CardBody>
+        <CardFooter className="d-flex justify-content-around">
+          <Button type="button" color="secondary" className={style.button}>
+            <Link to={`/recipe/${id}/edit`}>Edit</Link>
+          </Button>
+          <Button type="button" color="info" className={style.button}>
+            <Link to={`/recipe/${id}`}>Details</Link>
+          </Button>
+          <Button
+            type="button"
+            color="danger"
+            className={style.button}
+            onClick={handleRemoveRecipe}
+          >
+            Delete
+          </Button>
+        </CardFooter>
+      </Card>
+    </Col>
   );
 };
 

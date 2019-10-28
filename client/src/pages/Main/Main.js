@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import { Container } from 'reactstrap';
 
 import Header from '../../components/Header/Header';
 import CreateRecipe from '../CreateRecipe/CreateRecipe';
@@ -15,13 +16,15 @@ const Main = () => (
     <Header />
     <Breadcrumbs />
     <main className={style.main}>
-      <Switch>
-        <Route exact path="/" component={RecipesList} />
-        <Route exact path="/recipe/:id" component={RecipeDetails} />
-        <Route path="/recipe/:id/edit" component={EditRecipe} />
-        <Route path="/create" component={CreateRecipe} />
-        <Redirect to="/" />
-      </Switch>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={RecipesList} />
+          <Route exact path="/recipe/:id" component={RecipeDetails} />
+          <Route path="/recipe/:id/edit" component={EditRecipe} />
+          <Route path="/create" component={CreateRecipe} />
+          <Redirect to="/" />
+        </Switch>
+      </Container>
     </main>
     <Footer />
   </div>
